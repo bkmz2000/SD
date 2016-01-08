@@ -1,0 +1,82 @@
+#:kivy 1.0.9
+<Separator@Widget>:
+    size_hint_y: None
+    height: dp(1)
+    color: 0, 0, 1, 1
+    background_image: ''
+
+    canvas:
+        Color:
+            rgba: root.color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: root.background_image
+
+<Add>:
+	size_hint: 0.9, 0.5
+	title: "Adding settings"
+	BoxLayout:
+		id: bl
+		spacing: 9
+		size_hint: 0.9, 0.9
+		orientation: "vertical"
+
+		BoxLayout:
+			orientation: "horizontal"
+
+			Label:
+				text: "Url"
+
+			TextInput:
+				multiline: False
+				text: "https://"
+
+		BoxLayout:
+			orientation: "horizontal"
+
+			Label:
+				text: "Title"
+
+			TextInput:
+				multiline: False
+				text: ""
+
+		BoxLayout:
+			orientation: "horizontal"
+
+			Label:
+				text: "Links depth"
+
+			Spinner:
+				values: '1', '2', '3', '4', '5', '6'
+		Separator:
+
+		BoxLayout:
+			orientation: "horizontal"
+
+			Button:
+				text: "Add"
+
+			Button:
+				text: "Cancel"
+				on_press: root.dismis()
+
+
+
+
+<MainWidget>:
+	orientation: "vertical"
+	Label:
+		text: "test"
+
+	BoxLayout:
+		orientation: "horizontal"
+		Button:
+			size_hint: 0.5, 0.3
+			text: "Download"
+
+		Button:
+			size_hint: 0.5, 0.3
+			text: "Add"
+			on_press: root.showDialog()
